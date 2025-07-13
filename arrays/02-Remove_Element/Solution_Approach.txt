@@ -1,0 +1,88 @@
+My Solution Approach
+
+Let us consider the given test case:
+
+Input:
+nums = [3, 2, 2, 3], val = 3
+Expected Output:
+Return 2, and nums should be modified such that the first two elements do not contain the value 3. The order of elements can vary, so any two of the [2, 2] is a valid answer.
+
+
+We are given an array nums and a value val.
+Our task is to remove all instances of val in-place and return the new length k of the array such that the first k elements in nums do not contain val.
+
+To solve this, we follow a two-pointer overwrite approach:
+
+Steps:
+
+1. Initialize a pointer k to track the position to place non-val elements:
+
+
+k = 0
+
+
+This pointer k keeps track of how many elements we’ve added that are not equal to val. It also represents the new length of the array.
+
+
+2. Loop through the array:
+
+We iterate over every index i in nums:
+
+
+for i in range(len(nums)):
+
+At each index i, we check:
+
+
+if nums[i] != val:
+
+
+If the current element is not equal to val, we copy it to the kth index and then increment k:
+
+
+nums[k] = nums[i]
+k += 1
+
+
+This effectively overwrites the array in-place with only the required elements.
+
+
+3. Ignore elements equal to val:
+
+If nums[i] == val, we simply skip it and don't increment k. This removes val elements by overwriting them with the valid ones later.
+
+
+Final State:
+
+After the loop:
+
+* The first k elements of nums will contain only values not equal to val.
+* The rest of the elements beyond index `k` can be ignored.
+* The function returns `k`, which is the number of valid elements.
+
+ Example Dry Run:
+
+Input: `nums = [3, 2, 2, 3]`, `val = 3`
+
+* `i = 0`: `nums[0] == 3` → skip
+* `i = 1`: `nums[1] == 2` → assign `nums[0] = 2`, `k = 1`
+* `i = 2`: `nums[2] == 2` → assign `nums[1] = 2`, `k = 2`
+* `i = 3`: `nums[3] == 3` → skip
+
+Return `k = 2`, and `nums[:2] = [2, 2]`
+
+
+
+Conclusion
+
+By following the above steps:
+
+* We modify the array **in-place**, using only O(1) extra space.
+* We efficiently remove all `val` values.
+* This is a clean and optimized solution with **O(n)** time complexity and **O(1)** space complexity.
+
+
+You can check this problem on my Leetcode:
+Leetcode Link: https://leetcode.com/problems/remove-element/?envType=study-plan-v2&envId=top-interview-150
+
+
