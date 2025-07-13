@@ -7,6 +7,7 @@ This repository contains my solutions to the [LeetCode Top 150](https://leetcode
 | S.No | Title | Difficulty | Status |
 |---|-------|------------|--------|
 | 1 | Merge Sort Array| Easy | ✅ Done |
+| 2 | Remove Element | Easy | ✅ Done |
 
 
 ## 🚀 Language
