@@ -8,6 +8,7 @@ This repository contains my solutions to the [LeetCode Top 150](https://leetcode
 |---|-------|------------|--------|
 | 1 | Merge Sort Array| Easy | ✅ Done |
 | 2 | Remove Element | Easy | ✅ Done |
+| 3 | Remove Duplicates from Sorted Array| Easy | ✅ Done |
 
 
 ## 🚀 Language
