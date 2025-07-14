@@ -1,0 +1,63 @@
+My Solution Approach
+Let us consider the given test case:
+
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Expected Output: 5 (with the first 5 elements of nums modified to [0,1,2,3,4])
+
+We are given a sorted array nums in which we need to remove the duplicate elements in-place, such that each unique element appears only once and in the same relative order. The function should return the new length of the array containing only the unique elements at the start.
+
+To solve this, we follow the two-pointer approach:
+Steps
+Edge Case – Empty Array
+First, we check if the input array is empty:
+
+
+if not nums:
+    return 0
+If it's empty, the answer is clearly 0 since there are no elements to process.
+
+Initialize Two Pointers
+Let i be the slow-runner (last index of unique elements), and j be the fast-runner (used to scan the array):
+
+
+i = 0
+Iterate Through the Array with j Starting from 1
+We compare nums[j] with nums[i]. If they are not equal, we’ve found a new unique element:
+
+
+for j in range(1, len(nums)):
+    if nums[j] != nums[i]:
+        i += 1
+        nums[i] = nums[j]
+This ensures all unique elements are pushed to the front of the array.
+
+Return the Number of Unique Elements
+Since i is the index of the last unique element, the count of unique elements is i + 1:
+
+
+return i + 1
+🔍 Dry Run of Input: [0,0,1,1,1,2,2,3,3,4]
+Initial: i = 0, j = 1
+
+nums[1] == nums[0] → duplicate → skip
+
+nums[2] != nums[0] → move i to 1 → nums[1] = nums[2] → nums = [0,1,...]
+
+Continue this way...
+
+Final nums = [0,1,2,3,4,...] and i = 4 → return i + 1 = 5
+
+Conclusion
+
+By using the two-pointer method:
+
+We avoid using extra space (O(1) space complexity).
+
+We process the array in a single pass (O(n) time complexity).
+
+The solution is efficient and meets the problem constraints.
+
+This is a classic technique in array problems where in-place modifications are required with minimal space overhead.
+
+🔗 You can check this solution on Leetcode
+Leetcode link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/?envType=study-plan-v2&envId=top-interview-150
